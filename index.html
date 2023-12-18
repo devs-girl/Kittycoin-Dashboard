@@ -1,0 +1,622 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Kittycoin</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <script src="https://kit.fontawesome.com/1715d9e317.js" crossorigin="anonymous"></script>
+
+<link rel="shortcut icon" href="img/kitycircletransparent.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="shortcut icon" href="img/Stroke.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <meta name="theme-color" content="#fafafa">
+
+  <!-- Ticket Form Style -->
+  <style>
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body,
+    .ticket-form div,
+    .ticket-form form,
+    .ticket-form input,
+    .ticket-form select,
+    .ticket-form textarea,
+    .ticket-form label {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+    }
+
+    .ticket-form h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 60px;
+      color: #fff;
+      z-index: 2;
+      line-height: 83px;
+      top: 30px;
+    }
+
+    .ticket-form legend {
+      padding: 10px;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 18px;
+      color: #fff;
+      background-color: #ce00ce;
+    }
+
+    .ticket-form textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+    }
+
+    .ticket-form .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+    }
+
+    .ticket-form form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 8px #CC8899;
+    }
+
+    .ticket-form input,
+    .ticket-form select,
+    .ticket-form textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .ticket-form input {
+      width: calc(100% - 10px);
+      padding: 5px;
+    }
+
+    .ticket-form input[type="date"] {
+      padding: 4px 5px;
+    }
+
+    .ticket-form textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+    }
+
+    .ticket-form .item:hover p,
+    .ticket-form .item:hover i,
+    .ticket-form .question:hover p,
+    .ticket-form .question label:hover,
+    .ticket-form input:hover::placeholder {
+      color: #006622;
+    }
+
+    .ticket-form .item input:hover,
+    .ticket-form .item select:hover,
+    .ticket-form .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 3px 0 #006622;
+      color: #006622;
+    }
+
+    .ticket-form .item {
+      position: relative;
+      margin: 10px 0;
+    }
+
+    .ticket-form .item span {
+      color: red;
+    }
+
+    .ticket-form .week {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .ticket-form .colums {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .ticket-form .colums div {
+      width: 48%;
+    }
+
+    .ticket-form input[type=radio],
+    .ticket-form input[type=checkbox] {
+      display: none;
+    }
+
+    .ticket-form label.radio {
+      position: relative;
+      display: inline-block;
+      margin: 5px 20px 15px 0;
+      cursor: pointer;
+    }
+
+    .ticket-form .question span {
+      margin-left: 30px;
+    }
+
+    .ticket-form .question-answer label {
+      display: block;
+    }
+
+    .ticket-form label.radio:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+    }
+
+    .ticket-form input[type=radio]:checked+label:before,
+    .ticket-form label.radio:hover:before {
+      border: 2px solid #ff59ff;
+    }
+
+    .ticket-form label.radio:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 5px;
+      width: 8px;
+      height: 4px;
+      border: 3px solid #ff59ff;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+    }
+
+    .ticket-form input[type=radio]:checked+label:after {
+      opacity: 1;
+    }
+
+    .ticket-form .flax {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .ticket-form .btn-block {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .ticket-form button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #ce00ce;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .ticket-form button:hover {
+      background: #ff59ff;
+    }
+
+    legend {
+      display: block;
+      width: auto;
+      padding: 0 5px;
+      margin-bottom: 0;
+      font-size: inherit;
+      line-height: inherit;
+      border: auto;
+      border-bottom: none;
+      margin-right: auto;
+      margin-left: 10px;
+    }
+
+    fieldset {
+      border: 2px groove threedface;
+      padding: 5px;
+    }
+
+    .spanclass {
+      font-size: 24px;
+      color: #fff;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+    }
+
+    @media (min-width: 568px) {
+
+      .ticket-form .name-item,
+      .ticket-form .city-item {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .ticket-form .name-item input,
+      .ticket-form .name-item div {
+        width: calc(50% - 20px);
+      }
+
+      .ticket-form .name-item div input {
+        width: 97%;
+      }
+
+      .ticket-form .name-item div label {
+        display: block;
+        padding-bottom: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dashboard">
+    <div class="dash-menu w-25">
+      <div class="main-menu">
+        <div class="logo-details">
+          <img src="img/Stroke.png" alt="">
+          <span>KittyCoin</span>
+          <div class="kitty-btn">
+            <i class="fas fa-wallet"></i>
+            <a href="#">Buy Kitty</a>
+          </div>
+        </div>
+
+        <ul class="nav-links">
+          <li class="menu-list">
+            <a href="#dashboard">
+              <i class="fas fa-th-large"></i>
+              <span class="links_name">Dashboard</span>
+            </a>
+          </li>
+          <li class="menu-list">
+            <a href="#buy-ticket">
+              <i class="fas fa-ticket-alt"></i>
+              <span class="links_name">Purchase Tickets</span>
+            </a>
+          </li>
+          <li class="menu-list">
+            <a href="#bonus-tickets">
+              <i class="fas fa-ticket-alt"></i>
+              <span class="links_name">Available Tickets</span>
+            </a>
+          </li>
+          <li class="menu-list">
+            <a href="#countdown">
+              <i class="fas fa-clock"></i>
+              <span class="links_name">Drawing Countdown</span>
+            </a>
+          </li>
+          <li class="menu-list">
+            <a href="#bnb-jacpot">
+              <i class="fas fa-grin-stars"></i>
+              <span class="links_name">BNB Jackpot</span>
+            </a>
+          </li>
+          <li class="menu-list" data-toggle="modal" data-target="#exampleModalCenter">
+            <span class="spanclass">
+              <i class="fas fa-info-circle"></i>
+              <span class="links_name">Lottery Info</span>
+            </span>
+          </li>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div  class="modal-dialog modal-dialog-centered" role="document">
+              <div  class="modal-content scr-bar">
+                <div class="modal-header">
+                  <h5 class="modal-title md-title" id="exampleModalLongTitle">Lottery Details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                
+                 <ul>
+                   <li><i class="fas fa-circle"></i><a href="">YxK will provide an initial 5 BNB to our very first $KITY Jackpot!</a></li>
+                   <li><i class="fas fa-circle"></i><a href="">Entrants purchase Lottery Tickets and choose 4 numbers between 1-20, just like a real lottery! Entrants can use the Quick Pick button for random numbers to be chosen!</a></li>
+                   <li><a href="">Weekly Number Drawings will be held LIVE ON VC for full transparency</a>
+
+                    <li><i class="fas fa-circle"></i><a href="">Prizes must be claimed within 24 hours</a></li>
+                   <li><i class="fas fa-circle"></i><a href="">If there is no winner, or the prize is not claimed within 24 hours, the Jackpot amount will roll over to the next jackpot</a></li>
+                  </li>
+                   
+                   <li><i class="fas fa-circle"></i><a href="">Entrants will not be required to be holding $KITY tokens to purchase lottery tickets</a></li>
+                   <li><i class="fas fa-circle"></i><a href="">If the entrant is not holding a minimum of 50,000 $KITY tokens at the time of the lottery ticket purchase, they can only claim 50% of the jackpot if they win the lottery</a></li>
+                   <li><i class="fas fa-circle"></i><a href="">Entrants holding the Bonus Ticket Requirements of $KITY at the time of their lottery ticket purchases will receive a bonus lottery ticket per x amount of tickets bought
+                    (Bonus Ticket Requirements listed below)</a>
+                    <li><i class="fas fa-circle"></i><a href="">For every 100,000 $KITY that a lottery ticket purchaser holds, they will be granted 1 bonus lottery ticket for up to 5 bonus lottery tickets</a></li>
+                   <li><i class="fas fa-circle"></i><a href="">Each Bonus Lottery Ticket will be granted subsequently</a></li>
+                   <li><i class="fas fa-circle"></i><a href="">There is a max of 5 bonus lottery tickets allowed for each person</a></li>
+                  </li>
+                   
+                 </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ul>
+        <div class="footer-img">
+          <img src="img/footer.webp" alt="">
+        </div>
+      </div>
+    </div>
+    <!------------------- home -------------------- -->
+    <div class="dash-body">
+      <header>
+        <div class="home-menu">
+          <h1>KittyCoin Dashboard</h1>
+          <div class="wallet-btn">
+            <i class="fas fa-wallet"></i>
+            <a href="#">Wallet</a>
+          </div>
+        </div>
+      </header>
+
+      <!--counting-area-start-->
+      <div id="dashboard"  class="counting-area desktop theme-bg pt-60 pb-20" style="width: 90%; margin:auto;">
+        <div class="container">
+          <div class="row ">
+            <div class="col-lg-4 col-md-4 col-12">
+              <div class="counting-wrapper text-center mb-30">
+                <span class="counter">85</span>
+                <p>Number of Lottery Tickets Purchased</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12">
+              <div class="counting-wrapper text-center mb-30">
+                <span class="counter">35</span>
+                <p>Number of Lottery Tickets Submitted</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12">
+              <div class="counting-wrapper text-center mb-30">
+                <span class="counter">100</span>
+                <p>Total Number of Lottery Tickets</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--counting-area-end-->
+      <section id="countdown" class="coming-soon-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-12">
+              <div class="count-title">
+                <h2>Kitty drawing countdown </h2>
+              </div>
+            </div>
+            <div class="col-md-8 col-12">
+              <div class="countdown-timer">
+                <div class="timer-item">
+                  <div class="days">
+                    <h3>00</h3>
+                    <span>Days</span>
+                  </div>
+                </div>
+                <div class="timer-item">
+                  <div class="hours">
+                    <h3>00</h3>
+                    <span>Hours</span>
+                  </div>
+                </div>
+                <div class="timer-item">
+                  <div class="minutes">
+                    <h3>00</h3>
+                    <span>Minutes</span>
+                  </div>
+                </div>
+                <div class="timer-item">
+                  <div class="seconds">
+                    <h3>00</h3>
+                    <span>Seconds</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- mobile   -->
+      <!--counting-area-start-->
+      <div class="counting-area mobile theme-bg pt-60 pb-20" style="width: 90%; margin:auto;">
+        <div class="container">
+          <div class="row ">
+            <div class="col-lg-4 col-md-4 col-12">
+              <div class="counting-wrapper text-center mb-30">
+                <span class="counter">85</span>
+                <p>Number of Lottery Tickets Purchased</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12">
+              <div class="counting-wrapper text-center mb-30">
+                <span class="counter">35</span>
+                <p>Number of Lottery Tickets Submitted</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12">
+              <div class="counting-wrapper text-center">
+                <span class="counter">100</span>
+                <p>Total Number of Lottery Tickets</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--counting-area-start-->
+      <div class="counting-area theme-bg pt-4 pb-20" style="width: 90%; margin:auto;">
+        <div class="container">
+          <div class="row ">
+            <div class="col-lg-3 col-md-3 col-12">
+              <div id="bnb-jacpot" class="counting-wrapper jac text-center mb-30">
+                
+                <button class="purple-bg tool-btn-gold" data-toggle="tooltip" data-placement="bottom" title="This is how many Bonus Tickets you've been granted after purchasing your $KITYv2 Lottery Tickets!">
+                  <i class="fas fa-info-circle purple-bg"></i>
+                </button>
+                <span class="counter">12</span>
+                <p>Current Jackpot in BNB</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-12">
+              <div id="bonus-tickets" class="counting-wrapper text-center mb-30">
+                <button class="purple-bg tool-btn" data-toggle="tooltip" data-placement="bottom" title="This is how many Bonus Tickets you've been granted after purchasing your $KITYv2 Lottery Tickets!">
+                  <i class="fas fa-info-circle purple-bg"></i>
+                </button>
+                <span class="counter">5</span>
+                <p>Bonus Tickets Available</p>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-3 col-12">
+              <div class="counting-wrapper text-center mb-30">
+                <button class="purple-bg tool-btn" data-toggle="tooltip" data-placement="bottom" title="This is how many Bonus Tickets you've been granted after purchasing your $KITYv2 Lottery Tickets!">
+                  <i class="fas fa-info-circle purple-bg"></i>
+                </button>
+                <span class="counter">3</span>
+                <p>Bonus Tickets Submitted</p>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-3 col-12">
+              <div class="counting-wrapper text-center mb-30">
+                <i class="fas fa-pencil-alt"></i>
+                <span class="counter">4</span>
+                <p>Bonus Tickets Submitted</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--counting-area-end-->
+
+      <!-- *********************************************
+                    Add form here
+   ********************************************* -->
+
+      <div class="container mb-30" style="width: 90%; margin:auto;">
+        <div class="row">
+          <div class="col-12 col-md-6 mb-4 ">
+            <div id="buy-ticket" class="ticket-form testbox pb-5 mb-2">
+              <form action="/buytickets.php" method="post">
+                <br />
+                <img class="img-fluid mb-5 pb-3 " src="https://kittycoinbsc.com/wp-content/uploads/2022/03/tICKET.png" width="310"
+                  height="270">
+                <fieldset>
+                  <legend>Buy Tickets</legend>
+                  <div class="ticket-form colums">
+                  </div>
+                  <label for="numoftix">No. of Tickets to Purchase<span>*</span></label>
+                  <input id="numoftix" min=1 max=1000 type="number" name="numoftix" required />
+                  <center><button type="submit">Buy Tickets</button></center>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 mb-4">
+            <div class="ticket-form testbox">
+              <form method="post" action="/ticketform.php">
+                <br />
+                <fieldset>
+                  <legend>Pick 4 Lucky Numbers</legend>
+                  <div class="ticket-form colums">
+                    <div class="ticket-form item">
+                      <label for="pick1">Lucky Number 1<span>*</span></label>
+                      <input id="pick1" type="number" min=1 max=20 name="pick1" required />
+                    </div>
+                    <div class="ticket-form item">
+                      <label for="pick2">Lucky Number 2<span>*</span></label>
+                      <input id="pick2" type="number" min=1 max=20 name="pick2" required />
+                    </div>
+                    <div class="ticket-form item">
+                      <label for="pick3">Lucky Number 3<span>*</span></label>
+                      <input id="pick3" type="number" min=1 max=20 name="pick3" required />
+                    </div>
+                    <div class="ticket-form item">
+                      <label for="pick4">Lucky Number 4<span>*</span></label>
+                      <input id="pick4" type="number" min=1 max=20 name="pick4" required />
+                    </div>
+                    Please enter unique numbers (e.g. 1, 2, 3, 4)
+                </fieldset>
+                <br />
+                <fieldset>
+                  <legend>BSC Wallet Address</legend>
+                  <div class="ticket-form colums">
+                  </div>
+                  <label for="wallet">Confirm Your BSC Wallet Address<span>*</span></label>
+                  <input id="wallet" type="text" name="wallet" required />
+                  <center><button type="submit">Submit Ticket</button></center>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- <script src="js/fontawesome.min.js"></script> -->
+    <script src="js/all.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ "></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.meanmenu.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/animate.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+
+    <script>
+      AOS.init({
+        duration: 2000,
+      });
+
+    </script>
+
+    <script src="js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+</body>
+
+</html>
